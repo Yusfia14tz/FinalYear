@@ -23,12 +23,16 @@ public class Payment {
     @JoinColumn(name = "bill_id")
     private Bill bill;
 
+    @Column(nullable = false)
+    private String status;
+
     public Payment() {}
 
-    public Payment(Double amountPaid, Date date, Bill bill) {
+    public Payment(Double amountPaid, Date date, Bill bill, String status) {
         this.amountPaid = amountPaid;
         this.date = date;
         this.bill = bill;
+        this.status = status;
     }
 
     public Long getId() { return id; }
@@ -46,4 +50,8 @@ public class Payment {
     public Bill getBill() { return bill; }
 
     public void setBill(Bill bill) { this.bill = bill; }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) { this.status = status; }
 }
