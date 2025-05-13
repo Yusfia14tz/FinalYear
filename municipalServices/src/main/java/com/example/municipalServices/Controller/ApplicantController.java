@@ -18,6 +18,9 @@ public class ApplicantController {
 
     @PostMapping
     public Applicant createApplicant(@RequestBody Applicant applicant) {
+        System.out.println("Received bill: " + applicant.getBill());
+        System.out.println("Received payment: " + applicant.getPayment());
+        System.out.println("Received huduma: " + applicant.getHuduma());
         return applicantService.saveApplicant(applicant);
     }
 

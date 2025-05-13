@@ -19,13 +19,21 @@ public class Applicant {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "huduma_id") // jina la foreign key
+    @JoinColumn(name = "huduma_id") // Foreign key for Huduma
     private Huduma huduma;
+
+    @ManyToOne
+    @JoinColumn(name = "bill_id") // Foreign key for Bill
+    private Bill bill;
+
+    @ManyToOne
+    @JoinColumn(name = "payment_id") // Foreign key for Payment
+    private Payment payment;
 
     // Constructors
     public Applicant() {}
 
-    public Applicant(Long id, String fullname, String nationalId, String phoneNo, String email, String address, LocalDate dateApplied, String status, Huduma huduma) {
+    public Applicant(Long id, String fullname, String nationalId, String phoneNo, String email, String address, LocalDate dateApplied, String status, Huduma huduma, Bill bill, Payment payment) {
         this.id = id;
         this.fullname = fullname;
         this.nationalId = nationalId;
@@ -35,6 +43,8 @@ public class Applicant {
         this.dateApplied = dateApplied;
         this.status = status;
         this.huduma = huduma;
+        this.bill = bill;
+        this.payment = payment;
     }
 
     // Getters and Setters
@@ -109,5 +119,21 @@ public class Applicant {
 
     public void setHuduma(Huduma huduma) {
         this.huduma = huduma;
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }
